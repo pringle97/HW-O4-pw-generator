@@ -16,20 +16,18 @@ let symbols = '!@#$%^&*(){}[]=<>/,.'
 let passwordString = '';
 
 
-// function createPassword(input){
-//   console.log(input);
-// }
-
 
 
 button.addEventListener('click', (event) => {
-  event.preventDefault();
+
   console.log('passwordString = ', passwordString);
+
 
   const passwordLength = parseInt(prompt('Please choose how long you want your password (must be between 8 and 128)'))
 
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Error: password must be 8-128 characters. Please try again.")
+
   }
   else if (passwordLength >= 8 || passwordLength <= 128) {
 
@@ -58,43 +56,17 @@ button.addEventListener('click', (event) => {
     }
 
     let random = Math.floor(Math.random() * passwordString.length)
-
-
-
+    let password = '';
+    
     for (let i = 0; i < passwordLength; i++) {
-      let midPassword = [i];
-      console.log()
+      let randomNumber = Math.floor(Math.random(random) * passwordString.length)
+      let randomLetter = passwordString[randomNumber];
+      password += randomLetter
     }
+
+    document.getElementById("password").innerHTML = password;
+
   }
+
 });
 
-
-
-  //key value key value key value key value
-  //key: value
-
-  //   askUpperCaseLetters = confirm("Include uppercase letters?");
-//   askLowerCaseLetters = confirm("Include lowercase letters?");
-//   askNumbers = confirm("Include numbers?");
-//   askSymbols = confirm("Include symbols?");
-// }
-// if (upperCaseLetters == false && lowerCaseLetters == false && numbersConfirm == false && symbols == false) {
-//   alert("Error: You must select at least one character type!");
-// }
-
-
-// for (i = 0; i < passwordLength; i++) {
-//   if (askLowerCaseLetters && password.length < passwordLength) {
-//     password = password += lowerCaseLetters.charAt(Math.floor(Math.random() * lowerCaseLetters.length));
-//   }
-//   if (askUpperCaseLetters && password.length < passwordLength) {
-//     password = password += upperCaseLetters.charAt(Math.floor(Math.random() * upperCaseLetters.length));
-
-//   }
-//   if (askNumbers && password.length < passwordLength) {
-//     password = password += numbers.charAt(Math.floor(Math.random() * numbers.length));
-
-//   }
-//   if (askSymbols && password.length < passwordLength) {
-//     password = password += symbols.charAt(Math.floor(Math.random() * symbols.length));
-//   }
